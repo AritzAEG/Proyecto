@@ -1,14 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>
-        HomeScreen
-      </Text>
-    </View>
+      <ImageBackground source={require('../media/fondopatinete.png')} />
   )
 }
+
+const styles = StyleSheet.create({
+  View: {
+    flex: 1,
+  },
+});
 
 export default HomeScreen;

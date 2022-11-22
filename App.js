@@ -5,7 +5,7 @@ import 'expo-dev-client';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import Header from './src/screens/Header.js';
-import Navigation from './Navigation.js';
+import Menu from './Menu.js';
 
 export default function App() {
   // Set an initializing state whilst Firebase connects
@@ -71,7 +71,7 @@ export default function App() {
     );
   }
   return (
-    <Navigation />
+    <Menu />
   )
 }
 

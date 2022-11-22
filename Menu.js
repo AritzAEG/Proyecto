@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -74,7 +75,7 @@ function MyTabs() {
   );
 }
 
-export default function Navigation() {
+export default function Menu() {
   return (
     <NavigationContainer>
       <MyTabs />

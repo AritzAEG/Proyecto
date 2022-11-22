@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1095253030360",
+    "project_id": "authentication-25989",
+    "storage_bucket": "authentication-25989.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095253030360:android:72620ae5ddb04ec12b2ead",
+        "android_client_info": {
+          "package_name": "com.aritzgarci06.Authentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095253030360-5ti7vlf35u1c8a297j3cqqdg4e7cvfna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aritzgarci06.Authentication",
+            "certificate_hash": "7e2b3f91f29ba7ddb0945a3548b6f5bf77499f0f"
+          }
+        },
+        {
+          "client_id": "1095253030360-e1hci6v31gn7vl18g9huml7h6fsoros7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aritzgarci06.Authentication",
+            "certificate_hash": "b7d04e536005daf97e00edb51b74c0c0da0decc9"
+          }
+        },
+        {
+          "client_id": "1095253030360-4dg852h8bvc3qetqkat38l7nq0k417tb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADqQs6Qn8HGiNanptyT6U1qwkgcEvt3vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095253030360-4dg852h8bvc3qetqkat38l7nq0k417tb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
