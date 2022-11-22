@@ -5,6 +5,7 @@ import 'expo-dev-client';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import Header from './src/screens/Header.js';
+import Navigation from './Navigation.js';
 
 export default function App() {
   // Set an initializing state whilst Firebase connects
@@ -70,12 +71,7 @@ export default function App() {
     );
   }
   return (
-    <View style={styles.Container}>
-      <Text style={styles.Textitulo}>Bienvenido</Text>
-      <Text style={styles.Textusuario}>{user.displayName}</Text>
-      <Image style={styles.ProfileImage} source={{uri: user.photoURL}} />
-      <Button title = 'Sign Out' onPress={signOut} styles={styles.GoogleSignOut}/>
-    </View>
+    <Navigation />
   )
 }
 
