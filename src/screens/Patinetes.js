@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import theme from '../styles/theme.js';
+import themeContext from '../styles/themeContext.js';
 
 const Patinetes = () => {
   const Patinetes = [
@@ -19,22 +21,22 @@ const Patinetes = () => {
       image: require('../media/patinete3.png'),
     },
   ];
-
+  const theme = useContext(themeContext);
   const patinete = ( {item} ) => (
-    <View style={styles.item}>
-      <View style={styles.avatarContent}>
+    <View style={[styles.item, {backgroundColor: theme.backgroundColor}]}>
+      <View style={[styles.avatarContent, {backgroundColor: theme.backgroundColor}]}>
         <Image source={item.image} style={styles.avatar} />
     </View>
-    <Text style={styles.name}>{item.name}</Text>
+    <Text style={[styles.name, {color:theme.color}]}>{item.name}</Text>
     </View>
   )
 
   const headerComponent = () => {
-    return <Text style={styles.listHeadline}>Patinetes</Text>
+    return <Text style={[styles.listHeadline, {color:theme.color}]}>Patinetes</Text>
   }
 
   const itemSeparator = () => {
-    return <View style={styles.separator} />
+    return <View style={[styles.separator, {color:theme.color}]} />
   }
 
   return (

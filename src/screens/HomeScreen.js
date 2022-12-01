@@ -1,8 +1,9 @@
 import React, { useState} from "react";
 import { View, TouchableOpacity, StyleSheet, Animated, Image } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const HomeScreen = () => {
+export default function HomeScreen ({navigation}) {
 
   const [icon_1] = useState(new Animated.Value(40));
   const [icon_2] = useState(new Animated.Value(40));
@@ -55,17 +56,17 @@ const HomeScreen = () => {
       <Image source={require('../media/fondopatinete.png')} resizMode="cover" style={styles.image}/>
       <Animated.View style={[styles.circle, { bottom: icon_1}]}>
         <TouchableOpacity>
-          <MaterialCommunityIcons name="scooter" color='red' size={25} />
+          <MaterialCommunityIcons name="scooter" color='white' size={25} onPress={() => navigation.navigate('Patinetes')}/>
         </TouchableOpacity>
       </Animated.View>
       <Animated.View style={[styles.circle, { bottom: icon_2, right: icon_2}]}>
         <TouchableOpacity>
-          <MaterialCommunityIcons name="google-maps" color='red' size={25} />
+          <MaterialCommunityIcons name="google-maps" color='white' size={25} onPress={() => navigation.navigate('Maps')}/>
         </TouchableOpacity>
       </Animated.View>
       <Animated.View style={[styles.circle, { right: icon_3}]}>
         <TouchableOpacity>
-          <MaterialCommunityIcons name="face-man-profile" color='red' size={25} />
+          <MaterialCommunityIcons name="face-man-profile" color='white' size={25} onPress={() => navigation.navigate('Profile')}/>
         </TouchableOpacity>
       </Animated.View>
       <TouchableOpacity
@@ -74,14 +75,12 @@ const HomeScreen = () => {
           pop === false ? popIn() : popOut();
         }}
       >
-        <MaterialCommunityIcons name="plus" color='red' size={25} />
+        <MaterialCommunityIcons name="plus" color='white' size={25} />
       </TouchableOpacity>
     </View>
   )
 
 }
-
-export default HomeScreen;
 
 const styles = StyleSheet.create({
   circle: {

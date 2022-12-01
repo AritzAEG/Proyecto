@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import MapView, {Marker, Callout} from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import theme from '../styles/theme.js';
+import themeContext from '../styles/themeContext.js';
 
 export default function Mapas() {
   useEffect(() => {
@@ -16,8 +18,9 @@ export default function Mapas() {
       setLocation(location);
     })();
   }, []);
+  const theme = useContext(themeContext);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
       <MapView style={styles.map}
         initialRegion={{
           latitude: 43.30505,

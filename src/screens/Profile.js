@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useContext, useReducer } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Button } from 'react-native';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
+import theme from '../styles/theme.js';
+import themeContext from '../styles/themeContext.js';
 
 const Profile = () => {
   // Set an initializing state whilst Firebase connects
@@ -52,12 +54,13 @@ const Profile = () => {
 
     }
   }
+  const theme = useContext(themeContext);
 
   if (initializing) return null;
   return (
-    <View style={styles.View}>
-      <Text style={styles.Textitulo}>Bienvenido</Text>
-      <Text style={styles.Textusuario}>{user.displayName}</Text>
+    <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
+      <Text style={[styles.Textitulo, {color:theme.color}]}>Bienvenido</Text>
+      <Text style={[styles.Textusuario, {color:theme.color}]}>{user.displayName}</Text>
       <Image source={{uri: user.photoURL}} style={styles.ProfileImage} />
       <Button title='Sign Out' onPress={signOut} />
     </View>
@@ -65,6 +68,11 @@ const Profile = () => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },  
   View: {
     flex: 1,
     backgroundColor: '#fff',
@@ -76,6 +84,7 @@ const styles = StyleSheet.create({
     borderRadius: 150,
     marginTop: 100,
     marginBottom: 100,
+    backgroundColor: 'white',
   },
   Textitulo: {
     fontSize: 40,
