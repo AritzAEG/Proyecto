@@ -2,6 +2,13 @@ import React, {useContext} from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import theme from '../styles/theme.js';
 import themeContext from '../styles/themeContext.js';
+import i18n from '../languages/i18n.js';
+import SwitchSelector from 'react-native-switch-selector';
+import { useTranslation } from 'react-i18next';
+const options = [
+  {label: 'Castellano', value: 'es'},
+  {label: 'Euskara', value: 'eus'},
+]
 
 const Patinetes = () => {
   const Patinetes = [
@@ -21,35 +28,17 @@ const Patinetes = () => {
       image: require('../media/patinete3.png'),
     },
   ];
-  const theme = useContext(themeContext);
-  const patinete = ( {item} ) => (
-    <View style={[styles.item, {backgroundColor: theme.backgroundColor}]}>
-      <View style={[styles.avatarContent, {backgroundColor: theme.backgroundColor}]}>
-        <Image source={item.image} style={styles.avatar} />
-    </View>
-    <Text style={[styles.name, {color:theme.color}]}>{item.name}</Text>
-    </View>
-  )
-
-  const headerComponent = () => {
-    return <Text style={[styles.listHeadline, {color:theme.color}]}>Patinetes</Text>
-  }
-
-  const itemSeparator = () => {
-    return <View style={[styles.separator, {color:theme.color}]} />
-  }
-
+  
   return (
-    <SafeAreaView>
-      <FlatList
-        ListHeaderComponentStyle = {styles.listHeader}
-        ListHeaderComponent = {headerComponent}
-        data = { Patinetes }
-        renderItem = { patinete}
-        ListEmptyComponent = {<Text>Prueba</Text>}
-        ItemSeparatorComponent = {itemSeparator}
+    <View>
+      <SwitchSelector 
+      options={options} 
+      hasPadding initial={0} 
+      onPress={(language) => {
+        i18n.changeLanguage(language);
+      }}
       />
-    </SafeAreaView>
+    </View>
   )
 }
 

@@ -5,7 +5,8 @@ import { NavigationContainer, DarkTheme} from '@react-navigation/native';
 import { EventRegister } from 'react-native-event-listeners';
 import theme from './src/styles/theme.js';
 import themeContext from './src/styles/themeContext.js';
-import { DefaultTheme } from 'react-native-paper' 
+import { DefaultTheme } from 'react-native-paper';
+import i18n from './src/languages/i18n.js';
 
 import HomeScreen from './src/screens/HomeScreen.js';
 import Profile from './src/screens/Profile.js';

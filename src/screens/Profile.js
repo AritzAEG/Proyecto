@@ -4,8 +4,16 @@ import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/go
 import auth from '@react-native-firebase/auth';
 import theme from '../styles/theme.js';
 import themeContext from '../styles/themeContext.js';
+import i18n from '../languages/i18n.js';
+import SwitchSelector from 'react-native-switch-selector';
+import { useTranslation } from 'react-i18next';
+const options = [
+  {label: 'Castellano', value: 'es'},
+  {label: 'Euskara', value: 'eus'},
+]
 
 const Profile = () => {
+  const {t, i18n} = useTranslation();
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
@@ -57,9 +65,17 @@ const Profile = () => {
   const theme = useContext(themeContext);
 
   if (initializing) return null;
+  
   return (
     <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
-      <Text style={[styles.Textitulo, {color:theme.color}]}>Bienvenido</Text>
+      <SwitchSelector 
+      options={options} 
+      hasPadding initial={0} 
+      onPress={(language) => {
+        i18n.changeLanguage(language);
+      }}
+      />
+      <Text style={[styles.Textitulo, {color:theme.color}]}>{t("Bienvenido")}</Text>
       <Text style={[styles.Textusuario, {color:theme.color}]}>{user.displayName}</Text>
       <Image source={{uri: user.photoURL}} style={styles.ProfileImage} />
       <Button title='Sign Out' onPress={signOut} />
@@ -69,7 +85,6 @@ const Profile = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },  

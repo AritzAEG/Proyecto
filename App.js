@@ -6,6 +6,7 @@ import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/go
 import auth from '@react-native-firebase/auth';
 import Header from './src/screens/Header.js';
 import Menu from './Menu.js';
+import i18n from './src/languages/i18n.js';
 
 export default function App() {
   // Set an initializing state whilst Firebase connects
